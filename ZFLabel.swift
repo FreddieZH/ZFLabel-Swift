@@ -16,7 +16,7 @@ public enum ZFLabelTextAlignment {
 
 class ZFLabel: UILabel {
     
-    internal var ZF_verticalTextAlignment : ZFLabelTextAlignment = .Middle
+    internal var ZF_verticalTextAlignment : ZFLabelTextAlignment?
     
     override func textRectForBounds(bounds: CGRect, limitedToNumberOfLines numberOfLines: Int) -> CGRect {
         let rect : CGRect = super.textRectForBounds(bounds, limitedToNumberOfLines: numberOfLines)
@@ -31,7 +31,7 @@ class ZFLabel: UILabel {
         var calRect : CGRect;
         let fitSize = self.sizeThatFits(rect.size)
         
-        switch ZF_verticalTextAlignment {
+        switch ZF_verticalTextAlignment ?? .Middle {
         case .Top:
             calRect = CGRectMake(0, 0, self.bounds.size.width, fitSize.height);
         case .Bottom:
